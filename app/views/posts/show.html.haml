@@ -1,18 +1,18 @@
 %p#notice= notice
 %h1
   = @post.title
-%div
+%div.cat
   != RedCloth.new(@post.content).to_html
 %div
 - if (user_signed_in? && current_user.id == @post.user_id)
-  %div= link_to 'Edit', edit_post_path(@post)
+  %div.center= link_to 'Edit', edit_post_path(@post)
 - unless (@post.indices.nil?)
   - @post.indices.each do |node|
     - unless (node.lnode.nil? )
       - ln = Index.find node.lnode
       - unless ln.post_id.nil?
-        %div{:style => "float:left"}= link_to 'Prev', post_path(Post.find ln.post_id)
+        %div.float_left= link_to 'Prev', post_path(Post.find ln.post_id)
     - unless (node.rnode.nil?)
       - rn = Index.find node.rnode
       - unless rn.post_id.nil?
-        %div{:style => "float:right"}= link_to 'Next', post_path(Post.find rn.post_id)
+        %div.float_right= link_to 'Next', post_path(Post.find rn.post_id)
