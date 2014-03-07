@@ -5,7 +5,11 @@ BlogOfCrystle9::Application.routes.draw do
   get "home/index"
 
   resources :posts
-
+  
+  resources :books do
+    get 'edit_index', :as => 'edit_index'
+    put 'update_index', :as => 'update_index'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,10 +1,25 @@
 source 'https://rubygems.org'
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem "factory_girl_rails"
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end  
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'haml', '~> 4.0.5'
+group :development do
+  gem 'html2haml'
+end
 gem 'sqlite3'
 gem 'mysql'
 gem "RedCloth", "~> 4.2.9"

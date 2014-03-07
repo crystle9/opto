@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140301114253) do
+ActiveRecord::Schema.define(:version => 20140304065904) do
+
+  create_table "books", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "user_id"
+    t.integer  "page_one"
+    t.integer  "last_page"
+  end
+
+  create_table "indices", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "lnode"
+    t.integer  "rnode"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "book_id"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"

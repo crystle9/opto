@@ -1,0 +1,16 @@
+%h1 Editing Index of #{@book.name}
+%ul
+  - posts = current_user.posts
+  - posts.each do |post|
+    %li #{post.id}. #{post.title}
+%ul
+  - posts = @book.list_index
+  - posts.each do |post|
+    %li #{post.id}. #{post.title}
+    
+= form_tag(book_update_index_path(@book),:method => "put") do
+  = label_tag(:idstring, "Index:")
+  = text_field_tag(:idstring)
+  = submit_tag("Update Index")
+
+

@@ -1,0 +1,8 @@
+%h1 Editing book
+= render 'form'
+%br
+= link_to 'Edit Index', book_edit_index_path(@book)
+|
+= link_to 'Show', @book
+|
+= link_to 'Back', books_path
