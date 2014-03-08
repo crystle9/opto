@@ -14,7 +14,7 @@
             %li.float_right= link_to "#{current_user.email}", posts_path
             %li.float_right= link_to 'sign out', destroy_user_session_path, :method => :delete
           - else
-            %li.float_rihgt= link_to 'sign in', new_user_session_path
+            %li.float_right= link_to 'sign in', new_user_session_path
             -# %li= link_to 'sign up', new_user_registration_path
       %main.row.gutters{:role => "main"}
         %aside.col.span_2{:role => "complimentary"}
