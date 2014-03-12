@@ -1,0 +1,8 @@
+-#%p#notice= notice
+%h1
+  = @book.name
+%div.cat
+  != RedCloth.new(@book.description).to_html
+%div
+  %div.center= link_to 'Edit', edit_book_path(@book)
+  %div.float_left= link_to 'Back', books_path

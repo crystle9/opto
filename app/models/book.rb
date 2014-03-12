@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :description
   has_many :posts, :through => :indices
   has_many :indices, :dependent => :destroy
   belongs_to :user

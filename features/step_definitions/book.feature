@@ -11,29 +11,26 @@ Feature: 将文档整理成册
       我还可以直接到第一页，和最后一页。
     我看完了，或不想看了，合上，我又回到了主页。
  
-    Scenario: 新建一本书
+    Scenario: 新建一本书、并浏览
         Given I have signed in
         And I click "New Book"
         And I fill in "Name" with "唐诗三百首"
+	And I fill in "Description" with "三百首唐诗背死你"
         When I press "Create Book"
         Then page should have notice message "Your book was successfully created."
-        
-    Scenario: 编辑目录
-        Given I have signed in
-        Given I have 3 posts and a new book
+        Given I have 3 posts
         And I am on the book edit page
         When I click "Edit Index"
         And I fill in "Index" with "2,1,3"
         When I press "Update Index"
         Then page should have notice message "Your index was successfully updated."
-
-    Scenario: 呈现目录
-        Given I have signed in
-        Given I have 3 posts and a new book
-        Given the book index is "2,3,1"
         And I am on the index page
         And I click "传奇"
         And I click "Next"
         And I click "Next"
         And I click "Prev"
         Then page should have title "在"
+
+	When I visit "/books"
+	And I click "Show"
+	Then page should have content "三百首唐诗背死你"
